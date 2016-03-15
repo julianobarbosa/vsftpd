@@ -12,6 +12,9 @@ cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
 zypper in db-utils
 db_load -T -t hash -f logins.txt /etc/vsftpd_login.db
 
+# Create virtual user
+useradd -d /srv/ftp virtual
+
 # Copy files in this repository to /etc and /etc/pam.d
 # Restart vsftpd
 systemctl enable vsftpd
